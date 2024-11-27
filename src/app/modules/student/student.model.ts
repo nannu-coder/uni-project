@@ -66,67 +66,72 @@ const localGuardianSchema = new Schema<ILocalGuardian>({
   },
 });
 
-const studentSchema = new Schema<IStudent>({
-  id: {
-    type: String,
-    required: true,
-    unique: true,
+const studentSchema = new Schema<IStudent>(
+  {
+    id: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
+    name: {
+      type: userNameSchema,
+      required: [true, 'Name is required'],
+    },
+    gender: {
+      type: String,
+      required: true,
+    },
+    dateOfBirth: {
+      type: String,
+      required: [true, 'Date of Birth is required'],
+    },
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      unique: true,
+      trim: true,
+    },
+    contactNo: {
+      type: String,
+      required: [true, 'Contact No is required'],
+      unique: true,
+    },
+    emergencyContactNo: {
+      type: String,
+    },
+    presentAddress: {
+      type: String,
+      required: [true, 'Present Address is required'],
+    },
+    permanentAddress: {
+      type: String,
+      required: [true, 'Permanent Address is required'],
+    },
+    guardian: {
+      type: guardianSchema,
+      required: [true, 'Guardian is required'],
+    },
+    localGuardian: {
+      type: localGuardianSchema,
+      required: [true, 'Local Guardian is required'],
+    },
+    profileImage: {
+      type: String,
+      required: [true, 'Profile Image is required'],
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
   },
-  user: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: 'User',
+  {
+    timestamps: true,
   },
-  name: {
-    type: userNameSchema,
-    required: [true, 'Name is required'],
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  dateOfBirth: {
-    type: String,
-    required: [true, 'Date of Birth is required'],
-  },
-  email: {
-    type: String,
-    required: [true, 'Email is required'],
-    unique: true,
-    trim: true,
-  },
-  contactNo: {
-    type: String,
-    required: [true, 'Contact No is required'],
-    unique: true,
-  },
-  emergencyContactNo: {
-    type: String,
-  },
-  presentAddress: {
-    type: String,
-    required: [true, 'Present Address is required'],
-  },
-  permanentAddress: {
-    type: String,
-    required: [true, 'Permanent Address is required'],
-  },
-  guardian: {
-    type: guardianSchema,
-    required: [true, 'Guardian is required'],
-  },
-  localGuardian: {
-    type: localGuardianSchema,
-    required: [true, 'Local Guardian is required'],
-  },
-  profileImage: {
-    type: String,
-    required: [true, 'Profile Image is required'],
-  },
-  isDeleted: {
-    type: Boolean,
-    default: false,
-  },
-});
+);
 
 export const Student = model<IStudent>('Student', studentSchema);
