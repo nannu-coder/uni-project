@@ -84,6 +84,7 @@ const studentSchema = new Schema<IStudent>(
     },
     gender: {
       type: String,
+      enum: ['Male', 'Female', 'Other'],
       required: true,
     },
     dateOfBirth: {
@@ -120,13 +121,9 @@ const studentSchema = new Schema<IStudent>(
       type: localGuardianSchema,
       required: [true, 'Local Guardian is required'],
     },
-    profileImage: {
+    profileImg: {
       type: String,
       required: [true, 'Profile Image is required'],
-    },
-    isDeleted: {
-      type: Boolean,
-      default: false,
     },
   },
   {

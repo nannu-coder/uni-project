@@ -8,7 +8,7 @@ const createStudentIntoDB = async (password: string, studentData: IStudent) => {
   const user: Partial<IUser> = {};
 
   // set user id manually
-  user.id = '2024100001';
+  user.id = '2024100002';
 
   // set password into the user
   user.password = password || (config.password as string);

@@ -25,7 +25,7 @@ interface IStudent {
   id: string;
   user: Types.ObjectId;
   name: IUserName;
-  gender: string;
+  gender: 'Male' | 'Female' | 'Other';
   dateOfBirth: string;
   email: string;
   contactNo: string;
@@ -34,9 +34,8 @@ interface IStudent {
   permanentAddress: string;
   guardian: IGuardian;
   localGuardian: ILocalGuardian;
-  profileImage: string;
+  profileImg: string;
   addmissionSemester: string;
-  isDeleted: boolean;
 }
 
 export default IStudent;
