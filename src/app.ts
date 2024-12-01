@@ -1,7 +1,7 @@
 import express from 'express';
-import { userRoutes } from './app/modules/user/user.routes';
 import { globalErrorHandler } from './app/middleware/globalErrorHandler';
 import { notFoundMiddleware } from './app/middleware/notFound';
+import router from './app/routes';
 
 export const app = express();
 
@@ -9,7 +9,7 @@ export const app = express();
 app.use(express.json());
 
 // App Routes
-app.use('/api/v1/users', userRoutes);
+app.use('/api/v1', router);
 
 // global Error Handler
 app.use(globalErrorHandler);
