@@ -30,7 +30,6 @@ const localGuardianSchema = z.object({
 
 export const studentValidationSchema = z.object({
   body: z.object({
-    id: z.string(),
     student: z.object({
       name: userNameSchema,
       gender: z.enum(['Male', 'Female', 'Other']),
@@ -43,6 +42,7 @@ export const studentValidationSchema = z.object({
       guardian: guardianSchema,
       localGuardian: localGuardianSchema,
       profileImg: z.string(),
+      addmissionSemester: z.string(),
     }),
   }),
 });

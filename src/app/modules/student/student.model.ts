@@ -125,6 +125,10 @@ const studentSchema = new Schema<IStudent>(
       type: String,
       required: [true, 'Profile Image is required'],
     },
+    addmissionSemester: {
+      type: Schema.Types.ObjectId,
+      ref: 'AcademicSemester',
+    },
   },
   {
     timestamps: true,

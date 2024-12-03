@@ -35,7 +35,7 @@ interface IStudent {
   guardian: IGuardian;
   localGuardian: ILocalGuardian;
   profileImg: string;
-  addmissionSemester: string;
+  addmissionSemester: Types.ObjectId;
 }
 
 export default IStudent;
