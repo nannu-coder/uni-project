@@ -18,6 +18,18 @@ const createAcademicFaculty = catchAsync(async (req, res) => {
   });
 });
 
+const getAllAcademicFacultyFromDB = catchAsync(async (req, res) => {
+  const result = await academicFacultyServices.getAllAcademicFacultyFromDB();
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Academic Faculty rerived successfully',
+    data: result,
+  });
+});
+
 export const academicFacultyControllers = {
   createAcademicFaculty,
+  getAllAcademicFacultyFromDB,
 };
