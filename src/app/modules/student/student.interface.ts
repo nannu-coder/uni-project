@@ -36,6 +36,7 @@ interface IStudent {
   localGuardian: ILocalGuardian;
   profileImg: string;
   addmissionSemester: Types.ObjectId;
+  isDeleted: boolean;
 }
 
 export default IStudent;

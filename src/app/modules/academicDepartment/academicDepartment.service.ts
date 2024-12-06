@@ -11,7 +11,13 @@ const getAllAcademicDepartmentFromDB = async () => {
   return result;
 };
 
+const getSingleAcademicDepartmentFromDB = async (id: string) => {
+  const result = await AcademicDepartment.findById(id);
+  return result;
+};
+
 export const academicDepartmentService = {
   createAcademicDepartmentIntoDB,
   getAllAcademicDepartmentFromDB,
+  getSingleAcademicDepartmentFromDB,
 };

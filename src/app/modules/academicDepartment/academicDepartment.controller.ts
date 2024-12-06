@@ -29,7 +29,24 @@ const getAllAcademicDepartment = catchAsync(async (req, res) => {
   });
 });
 
+const getSingleAcademicDepartment = catchAsync(async (req, res) => {
+  const { departmentId } = req.params;
+
+  const result =
+    await academicDepartmentService.getSingleAcademicDepartmentFromDB(
+      departmentId,
+    );
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Academic department retrived successfully',
+    data: result,
+  });
+});
+
 export const academicDepatmentControllers = {
   createAcademicDepartment,
   getAllAcademicDepartment,
+  getSingleAcademicDepartment,
 };
